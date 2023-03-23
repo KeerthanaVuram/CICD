@@ -28,7 +28,7 @@ jobs:
           browserVersion:
           osName:
           osVersion:
-          testSuiteSysId: ${{ secrets.TEST_SUITE_ID }}
+          testSuiteSysId: cb84d4ee645320107f44ee76849dd2e5
           testSuiteName:
         env:
           snowUsername: GitHub.pipeline
