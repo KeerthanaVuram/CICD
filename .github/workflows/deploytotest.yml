@@ -20,10 +20,10 @@ jobs:
       with:
         versionFormat: detect
       env:
-        snowUsername: ${{ secrets.NOW_USERNAME }}
-        snowPassword: ${{ secrets.NOW_PASSWORD }}
-        snowSourceInstance: ${{ secrets.NOW_DEV_INSTANCE }}
-        appSysID: ${{ secrets.APP_SYS_ID }}
+        snowUsername: GitHub.pipeline
+        snowPassword: SecretP4ssW@rd
+        snowSourceInstance: https://nowlearning-nlinst00645632-dev-001.lab.service-now.com/nav_to.do?uri=sys_app.do?sys_id=3eba3ab430b9a5107f4413f8b152cec6
+        appSysID: 3eba3ab430b9a5107f4413f8b152cec6
           
     - name: Create Tag in repository
       if: ${{ success() && steps.sncicd-publish-app.outputs.newVersion }}
@@ -38,8 +38,8 @@ jobs:
       with:
         version: ${{ steps.sncicd-publish-app.outputs.newVersion }}
       env:
-        snowUsername: ${{ secrets.NOW_USERNAME }}
-        snowPassword: ${{ secrets.NOW_PASSWORD }}
-        snowInstallInstance: ${{ secrets.NOW_TEST_INSTANCE }}
-        appSysID: ${{ secrets.APP_SYS_ID }}
+        snowUsername: GitHub.pipeline
+        snowPassword: SecretP4ssW@rd
+        snowInstallInstance: https://nowlearning-nlinst00645632-test-001.lab.service-now.com/nav_to.do?uri=sys_app.do?sys_id=3eba3ab430b9a5107f4413f8b152cec6
+        appSysID: 3eba3ab430b9a5107f4413f8b152cec6
         appScope: ${{ secrets.APP_SCOPE }}
